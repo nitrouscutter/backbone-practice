@@ -1,0 +1,11 @@
+.image{
+    height: 50px;
+}
+
+.flowerListItem{
+    border:solid;
+    border-color: lightgrey;
+}
+.bgColorImage{
+    background-color: grey;
+}

@@ -3,7 +3,8 @@ var app = app || {};
 app.singleFlower = Backbone.Model.extend({
         defaults:{
             color: "Pink",
-            img: "images/placeholder.jpg"
+            img: "images/placeholder.jpg",
+            link: "default"
         },
         initialize: function(){
             let singleFlower = this;

@@ -22,12 +22,32 @@ let heirloomRoses = new app.singleFlower({
     link:"heirloomRose"
 });
 
+let tantalizingTulips = new app.singleFlower({
+    name: "Tantalizing Tulips",
+    price: 9.99,
+    color: "purple",
+    img:"images/tantalizingTulips.jpg",
+    key:"originCountry",
+    value:"Holland"
+});
+
+let fleurDeLis = new app.singleFlower({
+    name: "Fleur-de-lis",
+    price: 69.99,
+    color:"red",
+    img:"images/fleur-de-lis.jpg",
+});
+
 let flowerGroup = new app.flowersCollection([
-    redRoses,rainbowRoses
+    redRoses,rainbowRoses, heirloomRoses,tantalizingTulips,fleurDeLis
 ]);
 
 let flowerGroupView = new app.allFlowersView({collection: flowerGroup});
 $("#allFlowers").html(flowerGroupView.render().el);
+
+var flowerRouter = new app.router();
+
+Backbone.history.start();
 
 //---------------
 // Test
@@ -53,21 +73,8 @@ $("#allFlowers").html(flowerGroupView.render().el);
 //----------------------------
 // Challeng objectives
 //----------------------------
-let tantalizingTulips = new app.singleFlower({
-    name: "Tantalizing Tulips",
-    price: 9.99,
-    color: "purple",
-    img:"image/tantalizingTulips.jpg",
-    key:"originCountry",
-    value:"Holland"
-});
-let fleurDeLis = new app.singleFlower({
-    name: "Fleur-de-lis",
-    price: 69.99,
-    color:"red",
-    img:"image/fleur-de-lis.jpg",
-});
-let europeanFlowers = new app.flowersCollection([
-    tantalizingTulips,fleurDeLis
-]);
-console.log(europeanFlowers.toJSON());
+
+// let europeanFlowers = new app.flowersCollection([
+//     tantalizingTulips,fleurDeLis
+// ]);
+// console.log(europeanFlowers.toJSON());
