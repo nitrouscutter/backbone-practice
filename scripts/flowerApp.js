@@ -1,4 +1,6 @@
-var redRoses = new app.singleFlower({
+// more information on backbone - http://backbonejs.org/
+
+let redRoses = new app.singleFlower({
     name: "Red Roses",
     price: 39.95,
     color: "Red",
@@ -6,30 +8,63 @@ var redRoses = new app.singleFlower({
     link:"redRose"
 });
 
-var rainbowRoses = new app.singleFlower({
+let rainbowRoses = new app.singleFlower({
     name: "Rainbow Roses",
     price: 29.95,
     color: "orange",
     link:"rainbowRose"
 });
 
-var heirloomRoses = new app.singleFlower({
+let heirloomRoses = new app.singleFlower({
     name: "Heirloom Roses",
     price: 19.95,
     img:"image/heirloomRoses.jpg",
     link:"heirloomRose"
 });
 
-var flowerGroup = new app.FlowersCollection([
+let flowerGroup = new app.flowersCollection([
     redRoses,rainbowRoses
 ]);
 
+//---------------
 // Test
-flowerGroup.add(heirloomRoses);
-console.log(flowerGroup.toJSON());
+//---------------
 
+// Collections
+// Add
+//flowerGroup.add(heirloomRoses);
+// Remove
+//flowerGroup.remove(redRoses);
+//console.log(flowerGroup.toJSON());
+
+// Model Instances
 //console.log(redRoses.toJSON());
 //console.log(rainbowRoses.toJSON());
 //console.log(heirloomRoses.toJSON());
 
+// Setting model property
 //rainbowRoses.set('price', 20);
+
+
+
+//----------------------------
+// Challeng objectives
+//----------------------------
+let tantalizingTulips = new app.singleFlower({
+    name: "Tantalizing Tulips",
+    price: 9.99,
+    color: "purple",
+    img:"image/tantalizingTulips.jpg",
+    key:"originCountry",
+    value:"Holland"
+});
+let fleurDeLis = new app.singleFlower({
+    name: "Fleur-de-lis",
+    price: 69.99,
+    color:"red",
+    img:"image/fleur-de-lis.jpg",
+});
+let europeanFlowers = new app.flowersCollection([
+    tantalizingTulips,fleurDeLis
+]);
+console.log(europeanFlowers.toJSON());
