@@ -1,4 +1,4 @@
-let app= app || {}
+var app= app || {}
 
 // notes:
 // _ references underscore.js, and _.template is a property that lets underscore build the template

@@ -6,8 +6,9 @@
             <div class="logo">
                 <img src="./images/flowerShopLogo.png" width="207" height="124" alt="flowers" />
             </div>
+            <div id="allFlowers"></div>
         </div>
-    
+        
         <script id="flowerElement" type="text/template">
             <a href="#<%= link %>">
                 <img src="<%= img %>" alt="<%= name %>" class="image" />
@@ -18,7 +19,7 @@
                 <li class="flowerInfo"><strong>Color:</strong><%= color %></li>
             </ul>
         </script>
-        
+
         <script src="./scripts/libs/jquery-3.1.1.js"></script>
         <script src="./scripts/libs/underscore.js"></script>
         <script src="./scripts/libs/backbone.js"></script>

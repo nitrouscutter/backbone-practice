@@ -4,7 +4,7 @@ let redRoses = new app.singleFlower({
     name: "Red Roses",
     price: 39.95,
     color: "Red",
-    img:"image/redRoses.jpg",
+    img:"images/redRoses.jpg",
     link:"redRose"
 });
 
@@ -18,13 +18,16 @@ let rainbowRoses = new app.singleFlower({
 let heirloomRoses = new app.singleFlower({
     name: "Heirloom Roses",
     price: 19.95,
-    img:"image/heirloomRoses.jpg",
+    img:"images/heirloomRoses.jpg",
     link:"heirloomRose"
 });
 
 let flowerGroup = new app.flowersCollection([
     redRoses,rainbowRoses
 ]);
+
+let flowerGroupView = new app.allFlowersView({collection: flowerGroup});
+$("#allFlowers").html(flowerGroupView.render().el);
 
 //---------------
 // Test
