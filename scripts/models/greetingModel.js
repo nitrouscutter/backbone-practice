@@ -1,6 +1,6 @@
 var app = app || {};
 
-// calls api
+// simple model api call
 app.greetingModel = Backbone.Model.extend({
     defaults: {
         id: "",

@@ -41,7 +41,7 @@ let fleurDeLis = new app.singleFlowerModel({
 let flowerGroup = new app.flowersCollection([
     redRoses,rainbowRoses, heirloomRoses,tantalizingTulips,fleurDeLis
 ]);
-
+console.log(flowerGroup);
 let flowerGroupView = new app.allListItemView({collection: flowerGroup});
 $("#divList").html(flowerGroupView.render().el);
 

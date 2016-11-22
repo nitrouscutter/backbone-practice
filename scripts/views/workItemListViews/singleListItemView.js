@@ -3,7 +3,7 @@ var app= app || {}
 app.singleListItemView = Backbone.View.extend({
     tagName: "div",
     className:"row singleListItemRow",
-    template: _.template( $("#singleListItem").html()),
+    template: _.template( $("#singleListItemTemplate").html()),
     render: function(){
         let view = this;
         let singleListItemTemplate = view.template(view.model.toJSON());

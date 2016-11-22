@@ -49,7 +49,7 @@ var flowerRouter = new app.router();
 
 Backbone.history.start();
 
-// Test api call
+// Test simple model api call
 var greetingModel = new app.greetingModel();
 greetingModel.fetch({
     dataType: 'json',
