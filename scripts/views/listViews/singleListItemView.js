@@ -15,12 +15,12 @@ app.singleListItemView = Backbone.View.extend({
         "click #deleteFlower": "deleteFlower",
     },
     viewFlower: function(){
-        this.loopAnimation();
+        this.animation();
     },
     deleteFlower: function(){
         this.remove();
     },
-    loopAnimation: function loop(){
+    animation: function motion(){
         let view = this;
         var dot = view.$el.find(".dot");
         dot.animate({marginTop:30},500).animate({marginTop:0},500);
