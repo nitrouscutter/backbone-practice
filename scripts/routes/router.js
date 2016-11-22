@@ -1,4 +1,5 @@
 var app = app||{};
+// the point of routing is to put the app in a specific state by url
 
 app.router = Backbone.Router.extend({
     routes:{

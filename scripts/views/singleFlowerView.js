@@ -11,6 +11,7 @@ app.singleFlowerView = Backbone.View.extend({
     render: function(){
         let view = this;
         let flowerTemplate = view.template(view.model.toJSON());
+        // older version flowerTemplate = _.template( $("#flowerElement").html());
         view.$el.html(flowerTemplate);
         return view;
     },
