@@ -9,32 +9,13 @@
                 <img src="./images/flowerShopLogo.png" width="207" height="124" alt="flowers" />
             </div>
             <div class="container">
-                <div id="allFlowers" class="row"></div>
+                <div>
+                    <a href="./flowerGrid.html">Flower Grid</a>
+                </div>
+                <div>
+                    <a href="./flowerInventory.html">Flower Inventory</a>
+                </div>
             </div>
-            <div id="copy" class="container"></div>
         </div>
-        
-        <script id="flowerElement" type="text/template">
-            <a href="#<%= link %>">
-                <img src="<%= img %>" alt="<%= name %>" class="image" />
-            </a>
-            <ul>
-                <li class="flowerInfo"><strong>Name:</strong><%= name %></li>
-                <li class="flowerInfo"><strong>Price:</strong><%= price %></li>
-                <li class="flowerInfo"><strong>Color:</strong><%= color %></li>
-            </ul>
-        </script>
-
-        <script src="./scripts/libs/jquery-3.1.1.js"></script>
-        <script src="./scripts/libs/underscore.js"></script>
-        <script src="./scripts/libs/backbone.js"></script>
-        <script src="./scripts/libs/tether.min.js"></script><!-- Tether for Bootstrap -->
-        <script src="./scripts/libs/bootstrap.js"></script> 
-        <script src="./scripts/models/singleFlowerModel.js"></script>
-        <script src="./scripts/views/singleFlowerView.js"></script>
-        <script src="./scripts/views/allFlowersView.js"></script>
-        <script src="./scripts/collections/allFlowers.js"></script>
-        <script src="./scripts/routes/router.js"></script>
-        <script src="./scripts/flowerApp.js"></script>
     </body>
 </html>
