@@ -7,7 +7,7 @@ var app= app || {}
 app.singleFlowerView = Backbone.View.extend({
     tagName: "div",
     className:"flowerListItem col-sm-4",
-    template: _.template( $("#flowerElement").html()),
+    template: _.template( $("#flowerTemplate").html()),
     render: function(){
         let view = this;
         let flowerTemplate = view.template(view.model.toJSON());

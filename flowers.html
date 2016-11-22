@@ -9,12 +9,19 @@
                 <img src="./images/flowerShopLogo.png" width="207" height="124" alt="flowers" />
             </a>
             <div class="container">
+                <div id="greeting"></div>
                 <div id="allFlowers" class="row"></div>
             </div>
             <div id="copy" class="container"></div>
         </div>
+
+        <script id="greetingTemplate" type="text/template">
+            <div>
+                <%= id %>: <%= content %>
+            </div>
+        </script>
         
-        <script id="flowerElement" type="text/template">
+        <script id="flowerTemplate" type="text/template">
             <a href="#<%= link %>">
                 <img src="<%= img %>" alt="<%= name %>" class="image" />
                 <% console.log("test inline js") %>
@@ -31,12 +38,18 @@
         <script src="./scripts/libs/backbone.js"></script>
         <script src="./scripts/libs/tether.min.js"></script><!-- Tether for Bootstrap -->
         <script src="./scripts/libs/bootstrap.js"></script> 
-        <!-- view libraries -->
+
+        <!-- models -->
         <script src="./scripts/models/singleFlowerModel.js"></script>
+        <script src="./scripts/models/greetingModel.js"></script>
+        <!-- views -->
         <script src="./scripts/views/flowerViews/singleFlowerView.js"></script>
         <script src="./scripts/views/flowerViews/allFlowersView.js"></script>
+        <script src="./scripts/views/greetingViews/greetingView.js"></script>
         <script src="./scripts/collections/allFlowers.js"></script>
+        <!-- router -->
         <script src="./scripts/routes/router.js"></script>
-        <script src="./scripts/flowerApp.js"></script>
+        <!-- app -->
+        <script src="./scripts/flowersApp.js"></script>
     </body>
 </html>

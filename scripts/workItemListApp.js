@@ -1,6 +1,6 @@
 // more information on backbone - http://backbonejs.org/
 
-let redRoses = new app.singleFlower({
+let redRoses = new app.singleFlowerModel({
     name: "Red Roses",
     price: 39.95,
     color: "Red",
@@ -8,21 +8,21 @@ let redRoses = new app.singleFlower({
     link:"redRose"
 });
 
-let rainbowRoses = new app.singleFlower({
+let rainbowRoses = new app.singleFlowerModel({
     name: "Rainbow Roses",
     price: 29.95,
     color: "orange",
     link:"rainbowRose"
 });
 
-let heirloomRoses = new app.singleFlower({
+let heirloomRoses = new app.singleFlowerModel({
     name: "Heirloom Roses",
     price: 19.95,
     img:"images/heirloomRoses.jpg",
     link:"heirloomRose"
 });
 
-let tantalizingTulips = new app.singleFlower({
+let tantalizingTulips = new app.singleFlowerModel({
     name: "Tantalizing Tulips",
     price: 9.99,
     color: "purple",
@@ -31,7 +31,7 @@ let tantalizingTulips = new app.singleFlower({
     value:"Holland"
 });
 
-let fleurDeLis = new app.singleFlower({
+let fleurDeLis = new app.singleFlowerModel({
     name: "Fleur-de-lis",
     price: 69.99,
     color:"red",

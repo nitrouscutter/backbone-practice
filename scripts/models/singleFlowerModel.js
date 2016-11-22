@@ -1,6 +1,6 @@
 var app = app || {};
 
-app.singleFlower = Backbone.Model.extend({
+app.singleFlowerModel = Backbone.Model.extend({
         defaults:{
             color: "Pink",
             img: "images/placeholder.jpg",
