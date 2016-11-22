@@ -5,10 +5,21 @@
     </head>
     <body>
         <div class="main">
-            <div class="logo">
+            <a class="logo" href="./index.html">
                 <img src="./images/flowerShopLogo.png" width="207" height="124" alt="flowers" />
-            </div>
+            </a>
             <div class="container">
+                <div class="row newFlowerInputs">
+                    <div class="col-sm-4">
+                        <strong>name:</strong><input id="flowerNameInput"/>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong>price:</strong><input id="flowerPriceInput"/>
+                    </div>
+                    <div class="col-sm-4">
+                        <button id="addFlower">Add Flower</button>
+                    </div>
+                </div>
                 <div id="divList"></div>
             </div>
         </div>
@@ -16,7 +27,7 @@
         <script id="singleListItem" type="text/template">
             <!-- div properties -->
             <div class="col-sm-4">
-                <div class="dot"></div>
+                <div class="dot" style="background-image:url('./<%= img %>');"></div>
             </div>
             <div class="col-sm-4">
                 <%= name %>
@@ -41,8 +52,8 @@
         <script src="./scripts/libs/jquery-ui.js"></script><!-- for animations -->
         <!-- view libraries -->
         <script src="./scripts/models/singleFlowerModel.js"></script>
-        <script src="./scripts/views/singleListItemView.js"></script>
-        <script src="./scripts/views/allListItemView.js"></script>
+        <script src="./scripts/views/listViews/singleListItemView.js"></script>
+        <script src="./scripts/views/listViews/allListItemView.js"></script>
         <script src="./scripts/collections/allFlowers.js"></script>
         <script src="./scripts/divListApp.js"></script>
     </body>
