@@ -4,7 +4,7 @@ var app= app || {}
 // _ references underscore.js, and _.template is a property that lets underscore build the template
 // uses jquery to grab the element in the index.html with an id of "flowerElement"
 
-app.singleFlowerView = Backbone.View.extend({
+app.views.singleFlowerView = Backbone.View.extend({
     tagName: "div",
     className:"flowerListItem col-sm-4",
     template: _.template( $("#flowerTemplate").html()),

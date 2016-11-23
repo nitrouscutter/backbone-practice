@@ -16,19 +16,19 @@
         <script id="regionTemplate" type="text/template">
             <!-- div properties -->
             <div class="col-sm-4">
-                <%= name %>
+                <strong>Name:</strong><%= name %>
             </div>
             <div class="col-sm-4">
-                <%= abbr  %>
+                <strong>Abbr:</strong> <%= abbr  %>
             </div>
             <div class="col-sm-4">
-                <%=  area %>
+                <strong>Area:</strong> <%=  area %>
             </div>
             <div class="col-sm-4">
-                <%=  country %>
+                <strong>Country</strong><%=  country %>
             </div>
             <div class="col-sm-4">
-                <%=  largest_city %>
+                <strong>Largest City:</strong><%=  largest_city %>
             </div>
         </script>
 
@@ -38,9 +38,11 @@
         <script src="./scripts/libs/backbone.js"></script>
         <script src="./scripts/libs/tether.min.js"></script><!-- Tether for Bootstrap -->
         <script src="./scripts/libs/bootstrap.js"></script> 
+        <script src="./scripts/main.js"></script> 
 
         <!-- models -->
         <script src="./scripts/models/regionModel.js"></script>
+        <script src="./scripts/collections/regionCollection.js"></script>
         <script src="./scripts/api/countriesApi.js"></script>
         <!-- views -->
         <script src="./scripts/views/regionViews/regionView.js"></script>

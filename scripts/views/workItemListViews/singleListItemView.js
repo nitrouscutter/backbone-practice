@@ -1,6 +1,6 @@
 var app= app || {}
 
-app.singleListItemView = Backbone.View.extend({
+app.views.singleListItemView = Backbone.View.extend({
     tagName: "div",
     className:"row singleListItemRow",
     template: _.template( $("#singleListItemTemplate").html()),

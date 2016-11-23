@@ -5,21 +5,16 @@ var app = app || {};
 //     urlRoot: 'http://services.groupkt.com/country/get/all'
 // });
 
-// custom api call
-app.getRegionsByCountryCode = Backbone.Collection.extend({
-    model: app.regionModel,
-    url: "http://services.groupkt.com/state/get/{country}/all",
-    parse: function(response){
-
-        return response;
+app.countriesApi.getRegionsByCountryCode = Backbone.Collection.extend({
+    model: app.models.regionModel,
+    initialize: function(models, options) {
+        this.id = options.id;
+        this.country = options.country;
     },
-    fetch: function (country, options) {
-        options = options || {};
-        if (options.url === undefined) {
-            options.url = this.url.replace("{country}",country)
-        }
-        Backbone.Model.prototype.fetch.call(this, options);
-
-        return this.parse(Backbone.Model.prototype.fetch.call(this, options));
+    parse: function (response) {
+        return response.RestResponse.result;
     },
+    url: function() {
+        return "http://services.groupkt.com/state/get/{country}/all".replace("{country}", this.country);
+    }
 });

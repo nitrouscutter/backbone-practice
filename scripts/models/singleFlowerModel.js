@@ -1,6 +1,6 @@
 var app = app || {};
 
-app.singleFlowerModel = Backbone.Model.extend({
+app.models.singleFlowerModel = Backbone.Model.extend({
         defaults:{
             color: "Pink",
             img: "images/placeholder.jpg",
@@ -19,7 +19,7 @@ app.singleFlowerModel = Backbone.Model.extend({
                 console.log("Something in our model has changed");
             });
 
-            // property changes
+            // attribute changes
             this.on('change:price', function(){
                 let singleFlower = this;
                 console.log("The price for the "+singleFlower.get("name") + "model just changed to $"+ singleFlower.get("price") + " dollars");

@@ -1,6 +1,6 @@
 var app= app || {}
 
-app.greetingView = Backbone.View.extend({
+app.views.greetingView = Backbone.View.extend({
     tagName: "div",
     className:"container",
     template: _.template( $("#greetingTemplate").html()),

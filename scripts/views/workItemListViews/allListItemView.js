@@ -1,6 +1,6 @@
 var app = app || {};
 
-app.allListItemView = Backbone.View.extend({
+app.views.allListItemView = Backbone.View.extend({
     tagName: "section",
     className:"",
     render:function(){
@@ -10,7 +10,7 @@ app.allListItemView = Backbone.View.extend({
         $("#addFlower").click(function(){
             let name = $("#flowerNameInput").val();
             let price = $("#flowerPriceInput").val();
-            let newFlower = new app.singleFlower({
+            let newFlower = new app.models.singleFlowerModel({
                 name: name,
                 price: price
             });
@@ -24,7 +24,7 @@ app.allListItemView = Backbone.View.extend({
     },
     addFlower: function(flower){
         let view = this;
-        let flowerView = new app.singleListItemView({model: flower})
+        let flowerView = new app.views.singleListItemView({model: flower})
         view.$el.append(flowerView.render().el);
     }
 });

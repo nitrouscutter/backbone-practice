@@ -1,5 +1,5 @@
 var app = app || {}
 
-app.flowersCollection = Backbone.Collection.extend({
-    model: app.singleFlowerModel
+app.collections.flowersCollection = Backbone.Collection.extend({
+    model: app.models.singleFlowerModel
 });
