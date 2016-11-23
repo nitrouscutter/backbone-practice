@@ -5,7 +5,7 @@ var app = app || {};
 //     urlRoot: 'http://services.groupkt.com/country/get/all'
 // });
 
-app.countriesApi.getRegionsByCountryCode = Backbone.Collection.extend({
+app.api.getRegionsByCountryCode = Backbone.Collection.extend({
     model: app.models.regionModel,
     initialize: function(models, options) {
         this.id = options.id;

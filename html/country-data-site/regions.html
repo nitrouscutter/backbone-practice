@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../styles/main.css">
+        <link rel="stylesheet" type="text/css" href="../../styles/bootstrap.css">
+    </head>
+    <body>
+        <div class="main">
+            <a class="logo" href="../../index.html">
+                <img src="../../images/flowerShopLogo.png" width="207" height="124" alt="flowers" />
+            </a>
+            <div class="container">
+                <div id="regionsList"></div>
+            </div>
+        </div>
+        
+        <script id="regionTemplate" type="text/template">
+            <!-- div properties -->
+            <div class="col-sm-4">
+                <strong>Name:</strong><%= name %>
+            </div>
+            <div class="col-sm-4">
+                <strong>Abbr:</strong> <%= abbr  %>
+            </div>
+            <div class="col-sm-4">
+                <strong>Area:</strong> <%=  area %>
+            </div>
+            <div class="col-sm-4">
+                <strong>Country</strong><%=  country %>
+            </div>
+            <div class="col-sm-4">
+                <strong>Largest City:</strong><%=  largest_city %>
+            </div>
+        </script>
+
+        <!-- main libraries -->
+        <script src="../../scripts/libs/jquery-3.1.1.js"></script>
+        <script src="../../scripts/libs/underscore.js"></script>
+        <script src="../../scripts/libs/backbone.js"></script>
+        <script src="../../scripts/libs/tether.min.js"></script><!-- Tether for Bootstrap -->
+        <script src="../../scripts/libs/bootstrap.js"></script> 
+        <script src="../../scripts/country-data-site/main.js"></script> 
+
+        <!-- models -->
+        <script src="../../scripts/country-data-site/models/regionModel.js"></script>
+        <script src="../../scripts/country-data-site/collections/regionCollection.js"></script>
+        <script src="../../scripts/country-data-site/api/countriesApi.js"></script>
+        <!-- views -->
+        <script src="../../scripts/country-data-site/views/regionViews/regionView.js"></script>
+        <script src="../../scripts/country-data-site/views/regionViews/regionsView.js"></script>
+        <!-- app -->
+        <script src="../../scripts/country-data-site/apps/RegionsApp.js"></script>
+    </body>
+</html>

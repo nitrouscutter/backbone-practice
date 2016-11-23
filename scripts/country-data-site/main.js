@@ -1,5 +1,5 @@
 var app = {
-    countriesApi: {},
+    api: {},
     collections: {},
     models:{},
     routes:{},

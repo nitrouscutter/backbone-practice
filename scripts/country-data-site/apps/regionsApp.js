@@ -1,6 +1,6 @@
 
 
-var regionsCollection = new app.countriesApi.getRegionsByCountryCode([], {country:"USA"});
+var regionsCollection = new app.api.getRegionsByCountryCode([], {country:"USA"});
 regionsCollection.fetch({
 	success: function(response,xhr) {
         regionsView.render();
