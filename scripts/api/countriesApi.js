@@ -18,8 +18,8 @@ app.getRegionsByCountryCode = Backbone.Collection.extend({
         if (options.url === undefined) {
             options.url = this.url.replace("{country}",country)
         }
-        var result = Backbone.Model.prototype.fetch.call(this, options);
+        Backbone.Model.prototype.fetch.call(this, options);
 
-        return Backbone.Model.prototype.fetch.call(this, options);
+        return this.parse(Backbone.Model.prototype.fetch.call(this, options));
     },
 });
