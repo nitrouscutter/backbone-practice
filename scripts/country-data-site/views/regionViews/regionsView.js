@@ -1,12 +1,15 @@
 var app = app || {};
 
 app.views.regionsView = Backbone.View.extend({
+    initialize: function(options){
+        this.countryCode=options.countryCode;
+    },
     tagName: "div",
     className:"container",
     render:function(){
         let view = this;
         view.collection.each(view.addRegion, view);
-
+        $("#current-country").html(view.countryCode);
         return view;
     },
     addRegion: function(region){
