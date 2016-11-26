@@ -8,6 +8,7 @@ app.views.regionsView = Backbone.View.extend({
     className:"container",
     render:function(){
         let view = this;
+        console.log("rendering regions");
         view.collection.each(view.addRegion, view);
         $("#current-country").html(view.countryCode);
         return view;

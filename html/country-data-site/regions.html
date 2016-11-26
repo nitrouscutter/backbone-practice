@@ -22,7 +22,7 @@
                         <button id="search-regions-button">Search</button>
                     </div>
                     <div class="col-sm-4">
-                        <button id="search-all-regions-button">All Regions</button>
+                        <button id="search-all-countries-button">All Countries</button>
                     </div>
                 </div>
             </div>
@@ -50,6 +50,19 @@
             </div>
         </script>
 
+        <script id="countryTemplate" type="text/template">
+            <!-- div properties -->
+            <div class="col-sm-4">
+                <strong>Name:</strong><%= name %>
+            </div>
+            <div class="col-sm-4">
+                <strong>Alpha 2:</strong><%= alpha2_code %>
+            </div>
+            <div class="col-sm-4">
+                <strong>Alpha 3:</strong><%= alpha3_code %>
+            </div>
+        </script>
+
         <!-- main libraries -->
         <script src="../../scripts/libs/jquery-3.1.1.js"></script>
         <script src="../../scripts/libs/underscore.js"></script>
@@ -61,10 +74,14 @@
         <!-- models -->
         <script src="../../scripts/country-data-site/models/regionModel.js"></script>
         <script src="../../scripts/country-data-site/collections/regionCollection.js"></script>
+        <script src="../../scripts/country-data-site/models/countryModel.js"></script>
+        <script src="../../scripts/country-data-site/collections/countryCollection.js"></script>
         <script src="../../scripts/country-data-site/api/countriesApi.js"></script>
         <!-- views -->
         <script src="../../scripts/country-data-site/views/regionViews/regionView.js"></script>
         <script src="../../scripts/country-data-site/views/regionViews/regionsView.js"></script>
+        <script src="../../scripts/country-data-site/views/countryViews/countryView.js"></script>
+        <script src="../../scripts/country-data-site/views/countryViews/countriesView.js"></script>
         <!-- app -->
         <script src="../../scripts/country-data-site/apps/RegionsApp.js"></script>
     </body>

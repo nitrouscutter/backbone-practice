@@ -11,4 +11,4 @@ app.models.regionModel = Backbone.Model.extend({
         },
         initialize: function(){
         }
-})
+});

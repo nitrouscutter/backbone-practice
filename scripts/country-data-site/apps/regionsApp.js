@@ -16,12 +16,17 @@ $("#search-regions-button").click(function(){
 	$("#regionsList").html(regionsView.render().el);
 });
 
-$("#search-all-regions-button").click(function(){
-	regionsCollection = new app.api.getAllRegions();
-	regionsCollection.fetch();
-	regionsView = new app.views.regionsView({collection: regionsCollection, countryCode:"All"});
+$("#search-all-countries-button").click(function(){
+	countriesCollection = new app.api.getAllCountries();
+	countriesCollection.fetch({
+			success: function(response,xhr) {
+			countriesView.render();
+			}
+		});
+	console.log(countriesCollection);
+	countriesView = new app.views.countriesView({collection: countriesCollection});
 
-	$("#regionsList").html(regionsView.render().el);
+	$("#regionsList").html(countriesView.render().el);
 });
 
 function renderRegionsByCountryCode(countryCode){

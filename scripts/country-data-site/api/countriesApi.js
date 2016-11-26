@@ -9,6 +9,7 @@ app.api.getRegionsByCountryCode = Backbone.Collection.extend({
         this.country = options.country;
     },
     parse: function (response) {
+        console.log(response);
         return response.RestResponse.result;
     },
     url: function() {
@@ -17,9 +18,10 @@ app.api.getRegionsByCountryCode = Backbone.Collection.extend({
 });
 
 // GET all
-app.api.getAllRegions = Backbone.Collection.extend({
-    model: app.models.regionModel,
+app.api.getAllCountries = Backbone.Collection.extend({
+    model: app.models.countryModel,
     parse: function (response) {
+        console.log(response);
         return response.RestResponse.result;
     },
     url: function() {
