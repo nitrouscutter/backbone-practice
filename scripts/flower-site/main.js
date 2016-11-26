@@ -3,5 +3,6 @@ var app = {
     collections: {},
     models:{},
     routes:{},
-    views:{}
+    views:{},
+    testData:{}
 };

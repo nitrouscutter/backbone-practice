@@ -16,6 +16,14 @@ $("#search-regions-button").click(function(){
 	$("#regionsList").html(regionsView.render().el);
 });
 
+$("#search-all-regions-button").click(function(){
+	regionsCollection = new app.api.getAllRegions();
+	regionsCollection.fetch();
+	regionsView = new app.views.regionsView({collection: regionsCollection, countryCode:"All"});
+
+	$("#regionsList").html(regionsView.render().el);
+});
+
 function renderRegionsByCountryCode(countryCode){
 	let regionsCollection = new app.api.getRegionsByCountryCode([], {country:countryCode});
 		regionsCollection.fetch({
