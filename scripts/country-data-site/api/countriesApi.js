@@ -2,7 +2,7 @@ var app = app || {};
 
 // calls api
 // 
-app.api.getRegionsByCountryCode = Backbone.Collection.extend({
+app.api.getRegionsByCountryCode = app.collections.regionsCollection.extend({
     model: app.models.regionModel,
     initialize: function(models, options) {
         this.id = options.id;
@@ -18,7 +18,7 @@ app.api.getRegionsByCountryCode = Backbone.Collection.extend({
 });
 
 // GET all
-app.api.getAllCountries = Backbone.Collection.extend({
+app.api.getAllCountries = app.collections.countriesCollection.extend({
     model: app.models.countryModel,
     parse: function (response) {
         console.log(response);
