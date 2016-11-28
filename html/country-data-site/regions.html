@@ -54,10 +54,12 @@
             <div class="container">
                 <div class="row regions-search-div">
                     <div class="col-sm-4">
-                        <strong>Country Code:</strong><input id="country-code-input" value="<%= countryCode %>"/>
+                        <form id="seach-regions-form">
+                            <strong>Country Code:</strong><input id="country-code-input" value="<%= countryCode %>" maxlength="3" />
+                        </form>
                     </div>
                     <div class="col-sm-4">
-                        <button id="search-regions-button">Search</button>
+                        <button id="search-regions-button" type="submit">Search</button>
                     </div>
                     <div class="col-sm-4">
                         <button id="search-all-countries-button">All Countries</button>
@@ -79,17 +81,17 @@
         <script src="../../scripts/country-data-site/main.js"></script> 
 
         <!-- models -->
-        <script src="../../scripts/country-data-site/models/regionModel.js"></script>
-        <script src="../../scripts/country-data-site/collections/regionCollection.js"></script>
-        <script src="../../scripts/country-data-site/models/countryModel.js"></script>
-        <script src="../../scripts/country-data-site/models/countryDataModel.js"></script>
-        <script src="../../scripts/country-data-site/collections/countryCollection.js"></script>
-        <script src="../../scripts/country-data-site/api/countriesApi.js"></script>
+        <script src="../../scripts/country-data-site/models/region-model.js"></script>
+        <script src="../../scripts/country-data-site/models/collections/region-collection.js"></script>
+        <script src="../../scripts/country-data-site/models/country-model.js"></script>
+        <script src="../../scripts/country-data-site/models/country-data-model.js"></script>
+        <script src="../../scripts/country-data-site/models/collections/country-collection.js"></script>
+        <script src="../../scripts/country-data-site/api/country-data-api.js"></script>
         <!-- views -->
-        <script src="../../scripts/country-data-site/views/regionViews/regionView.js"></script>
-        <script src="../../scripts/country-data-site/views/regionViews/regionsView.js"></script>
-        <script src="../../scripts/country-data-site/views/countryViews/countryView.js"></script>
-        <script src="../../scripts/country-data-site/views/countryViews/countriesView.js"></script>
+        <script src="../../scripts/country-data-site/views/region-views/region-view.js"></script>
+        <script src="../../scripts/country-data-site/views/region-views/region-list-view.js"></script>
+        <script src="../../scripts/country-data-site/views/country-views/country-view.js"></script>
+        <script src="../../scripts/country-data-site/views/country-views/country-list-view.js"></script>
         <script src="../../scripts/country-data-site/views/country-data-view.js"></script>
         <!-- app -->
         <script src="../../scripts/country-data-site/apps/country-data-site-app.js"></script>

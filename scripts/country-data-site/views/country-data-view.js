@@ -24,7 +24,12 @@ app.views.countryDataView = Backbone.View.extend({
     },
     events: {
         "click #search-regions-button": "searchRegionsByCountryCode",
+        "submit #seach-regions-form":"searchRegionFormSubmit",
         "click #search-all-countries-button": "searchAllCountries",
+    },
+    searchRegionFormSubmit:function(event){
+        event.preventDefault();
+        this.searchRegionsByCountryCode();
     },
     searchRegionsByCountryCode: function(){
         let view = this;
@@ -34,6 +39,7 @@ app.views.countryDataView = Backbone.View.extend({
         view.renderRegionsByCountryCode();
         view.regionsView.collection = view.regionsCollection;
         view.regionsView.countryCode = view.countryCode;
+        $("#country-code-input").select();
     },
     searchAllCountries: function(){
         let view = this;

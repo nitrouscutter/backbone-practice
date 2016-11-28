@@ -2,7 +2,6 @@ var app = app || {};
 
 app.views.countriesView = Backbone.View.extend({
     initialize: function(options){
-
     },
     tagName: "div",
     className:"col-xs-6",
