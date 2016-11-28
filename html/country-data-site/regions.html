@@ -9,25 +9,6 @@
                 <a class="logo " href="../../index.html">
                     <img src="../../images/earth.gif" width="50" height="50" alt="flowers" />
                 </a>
-                <span>
-                    Regions By Country Search - <span id="current-country"></span>
-                <span>
-            </div>
-            <div class="container">
-                <div class="row regions-search-div">
-                    <div class="col-sm-4">
-                        <strong>Country Code:</strong><input id="country-code-input"/>
-                    </div>
-                    <div class="col-sm-4">
-                        <button id="search-regions-button">Search</button>
-                    </div>
-                    <div class="col-sm-4">
-                        <button id="search-all-countries-button">All Countries</button>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div id="regionsList"></div>
             </div>
         </div>
         
@@ -63,6 +44,32 @@
             </div>
         </script>
 
+        <script id="country-data-template" type="text/template">
+            <!-- div properties -->
+            <div class="container">
+                <h3>
+                    Regions By Country Search - <%= countryCode %>
+                </h3>
+            </div>
+            <div class="container">
+                <div class="row regions-search-div">
+                    <div class="col-sm-4">
+                        <strong>Country Code:</strong><input id="country-code-input" value="<%= countryCode %>"/>
+                    </div>
+                    <div class="col-sm-4">
+                        <button id="search-regions-button">Search</button>
+                    </div>
+                    <div class="col-sm-4">
+                        <button id="search-all-countries-button">All Countries</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div id="countryData">
+                </div>
+            </div>
+        </script>
+
         <!-- main libraries -->
         <script src="../../scripts/libs/jquery-3.1.1.js"></script>
         <script src="../../scripts/libs/underscore.js"></script>
@@ -75,6 +82,7 @@
         <script src="../../scripts/country-data-site/models/regionModel.js"></script>
         <script src="../../scripts/country-data-site/collections/regionCollection.js"></script>
         <script src="../../scripts/country-data-site/models/countryModel.js"></script>
+        <script src="../../scripts/country-data-site/models/countryDataModel.js"></script>
         <script src="../../scripts/country-data-site/collections/countryCollection.js"></script>
         <script src="../../scripts/country-data-site/api/countriesApi.js"></script>
         <!-- views -->
@@ -82,7 +90,8 @@
         <script src="../../scripts/country-data-site/views/regionViews/regionsView.js"></script>
         <script src="../../scripts/country-data-site/views/countryViews/countryView.js"></script>
         <script src="../../scripts/country-data-site/views/countryViews/countriesView.js"></script>
+        <script src="../../scripts/country-data-site/views/country-data-view.js"></script>
         <!-- app -->
-        <script src="../../scripts/country-data-site/apps/RegionsApp.js"></script>
+        <script src="../../scripts/country-data-site/apps/country-data-site-app.js"></script>
     </body>
 </html>
