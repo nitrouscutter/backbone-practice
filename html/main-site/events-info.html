@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../styles/main.css">
+        <link rel="stylesheet" type="text/css" href="../../styles/bootstrap.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="container bd-pageheader">
+                <a class="logo" href="../../index.html">
+                    <img src="../../images/backbone.png" width="200"/>
+                </a>
+                <div class="jumbotron">
+                    <h1>Events</h1>      
+                </div>
+            </div>
+            <div class="container">
+                <div class="bd-content">
+                    <p>
+                        Events are main parts of an application. It binds user's custom events to an application. They can be mixed into any object and are capable of 
+                        binding and triggerring custom events. You can bind the custom events by using desired name of your choice. Typically, events are handled synchronously 
+                        with their program flow. In the above architecture, you could see when an event occurs, it represents the model's data by using the view.
+                    </p>
+                    <p>
+                        Now we can talk about how the flower views turn grey when you hover over them...
+                    </p>
+                    <div id="allFlowers"></div>
+                    <p style="padding-top:100px">
+                        The code below shows how events in Backbone can be implemented within its models:
+                    <p>
+                        <pre>
+                            <code>
+                                app.views.singleFlowerView = Backbone.View.extend({
+                                    tagName: "div",
+                                    className:"flowerListItem col-sm-4",
+                                    template: _.template( $("#flowerTemplate").html()),
+                                    render: function(){
+                                        let view = this;
+                                        let flowerTemplate = view.template(view.model.toJSON());
+                                        // older version flowerTemplate = _.template( $("#flowerElement").html());
+                                        view.$el.html(flowerTemplate);
+                                        return view;
+                                    },
+                                    events: {
+                                        'mouseover':'addBgColor',
+                                        'mouseout':'removeBgColor'
+                                    },
+                                    addBgColor: function(){
+                                        this.$el.addClass("bgColorImage");
+                                    },
+                                    removeBgColor: function(){
+                                        this.$el.removeClass("bgColorImage");
+                                    }
+                                });
+                            </code>
+                        </pre>
+
+                        <p>
+                            The events attribute will handle any event that gets triggered, and invoke one of its models functions. This is Backbones
+                            way of implementing JQueries .on() in my perspective. 
+                        </p>
+                </div>
+                
+                <script id="flowerTemplate" type="text/template">
+                    <a href="#<%= link %>">
+                        <img src="<%= img %>" alt="<%= name %>" class="image" />
+                    </a>
+                    <ul>
+                        <li class="flowerInfo"><strong>Name:</strong> <%= name %></li>
+                        <li class="flowerInfo"><strong>Price:</strong> <%= price %></li>
+                        <li class="flowerInfo"><strong>Color:</strong> <%= color %></li>
+                    </ul>
+                </script>
+            </div>
+        </div>
+
+        <!-- main libraries -->
+        <script src="../../scripts/libs/jquery-3.1.1.js"></script>
+        <script src="../../scripts/libs/underscore.js"></script>
+        <script src="../../scripts/libs/backbone.js"></script>
+        <script src="../../scripts/libs/tether.min.js"></script><!-- Tether for Bootstrap -->
+        <script src="../../scripts/libs/bootstrap.js"></script> 
+        <script src="../../scripts/flower-site/main.js"></script> 
+
+        <!-- models -->
+        <script src="../../scripts/flower-site/models/singleFlowerModel.js"></script>
+        <!-- views -->
+        <script src="../../scripts/flower-site/views/flowerViews/singleFlowerView.js"></script>
+        <script src="../../scripts/flower-site/views/flowerViews/allFlowersView.js"></script>
+        <script src="../../scripts/flower-site/collections/allFlowers.js"></script>
+        <!-- router -->
+        <script src="../../scripts/flower-site/routes/router.js"></script>
+        <!-- test data -->
+        <script src="../../scripts/flower-site/test-data/test-data.js"></script>
+        <!-- app -->
+        <script src="../../scripts/flower-site/apps/flowersApp.js"></script>
+    </body>
+</html>
