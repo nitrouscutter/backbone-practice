@@ -1,1 +1,96 @@
-todo
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../styles/main.css">
+        <link rel="stylesheet" type="text/css" href="../../styles/bootstrap.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="container bd-pageheader">
+                <a class="logo" href="../../index.html">
+                    <img src="../../images/backbone.png" width="200"/>
+                </a>
+                <div class="jumbotron">
+                    <h1>API Integration</h1>      
+                </div>
+            </div>
+            <div class="container">
+                <div class="bd-content">
+                    <p>
+                        This section could have been included in the models section considering the api calls are part of the 
+                        Backbone model, but I feel it is better to understand it as a split functionaility. I managed to find a
+                        countries / regions API on the web that was free to use to the public. Below you will see how you can use GET
+                        API calls in the model object to pull JSON data from a server.
+                    </p>
+                    <h3>
+                        Example:
+                    </h3>
+                    <pre>
+                        <code>
+                            // GET regions by country code
+                            app.api.getRegionsByCountryCode = app.collections.regionsCollection.extend({
+                                model: app.models.regionModel,
+                                initialize: function(models, options) {
+                                    this.id = options.id;
+                                    this.country = options.country;
+                                },
+                                parse: function (response) {
+                                    return response.RestResponse.result;
+                                },
+                                url: function() {
+                                    return "http://services.groupkt.com/state/get/{country}/all".replace("{country}", this.country);
+                                }
+                            });
+
+                            // GET all countries
+                            app.api.getAllCountries = app.collections.countriesCollection.extend({
+                                model: app.models.countryModel,
+                                parse: function (response) {
+                                    return response.RestResponse.result;
+                                },
+                                url: function() {
+                                    return "http://services.groupkt.com/country/get/all";
+                                }
+                            });
+                        </code>
+                    </pre>
+                    <p>
+                        As you can see, turning your Backbone model into a API call isn't that hard to do. You stick the server URL into the "url" attribute and have a
+                        model that matches the response. In the example above the response did not match the "regionModel" I provided. If this ever happens, a good work around is to use the
+                        "parse" attribute to return the part of the response that matches your model. To make the call, you just invoke the .fetch() function on the Backbone model.
+                        You can also add custom things to the fetch call like what happens on success(). Below is an example of how you would call fetch().
+                    </p>
+                    <h3>
+                        Example:
+                    </h3>
+                    <pre>
+                        <code>
+                                searchAllCountries: function(){
+                                    let view = this;
+                                    view.countriesCollection.fetch({
+                                            success: function(response,xhr) {
+                                                view.countriesView.collection = response;
+                                                view.countriesView.render();
+                                            }
+                                        });
+                                    view.countriesView.collection = view.countriesCollection;
+                                }
+                        </code>
+                    </pre>
+                    <p>
+                        The idea of splitting the Backbone models that contain API calls into its own folder (API hub) is just personal preference to me. Seeing that you may
+                        have multiple server queries out there that return the same object is my reasoning for this. Otherwise they are just simple Backbone models with extra functionaility
+                        to them.
+                    </P>
+                </div>
+            </div>
+        </div>
+
+        <!-- main libraries -->
+        <script src="../../scripts/libs/jquery-3.1.1.js"></script>
+        <script src="../../scripts/libs/underscore.js"></script>
+        <script src="../../scripts/libs/backbone.js"></script>
+        <script src="../../scripts/libs/tether.min.js"></script><!-- Tether for Bootstrap -->
+        <script src="../../scripts/libs/bootstrap.js"></script> 
+        <script src="../../scripts/flower-site/main.js"></script> <!-- namespace info -->
+    </body>
+</html>
