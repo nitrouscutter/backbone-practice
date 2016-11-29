@@ -16,9 +16,69 @@
             <div class="container">
                 <div class="bd-content">
                     <p>
-                        It is used for routing client side applications and connects them to actions and events using URL's. It is an URL representation of application's objects. The URL is changed manually by the user. The URL is used by the backbone so that it can understand what application state to be sent or present to the user. Router is a mechanism which can copy the URL's to reach the view. Router is required when web applications provide linkable, bookmarkable, and shareable URL's for important locations in the app.
+                        Routing is used for routing client side applications and connects them to actions and events using URL's. It is an URL representation of application's objects. The URL is changed manually by the user. The URL is used by the backbone so that it can understand what application state to be sent or present to the user. Router is a mechanism which can copy the URL's to reach the view. Router is required when web applications provide linkable, bookmarkable, and shareable URL's for important locations in the app.
                     </p>
+                    <p>
+                        To see how routing works, lets bring back the flower collection views from the previous tutorial. Click on each of the flower images below and you will notice it
+                        updates the url as well as text in a div. Now when you go to that url directly, the backbone router should trigger the correct function associated with it. 
+                    </p>
+                    <div id="allFlowers"></div>
+                    <div id="copy" class="container"></div>
+                    <p>
+                        Creating a router should like something like this:
+                    </p>
+                    <pre>
+                        <code>
+                            app.routes.router = Backbone.Router.extend({
+                                routes:{
+                                    "":"noCopy",
+                                    "heirloomRose": "heirloomRoseMessage",
+                                    "rainbowRose" : "rainbowRoseMessage",
+                                    "redRose" : "redRoseMessage",
+                                    "default" : "defaultMessage"
+                                },
+                                noCopy: function(){
+                                    $("#copy").html("");
+                                },
+                                heirloomRoseMessage:function(){
+                                    $("#copy").html("Heirloom Roses are great Mother's Day flowers");
+                                },
+                                rainbowRoseMessage: function(){
+                                    $("#copy").html("Choose Rainbow Roses for your wedding");
+                                },
+                                redRoseMessage:function(){
+                                    $("#copy").html("Oh Valentine's Day, give that special someone Red Roses");
+                                },
+                                defaultMessage:function(){
+                                    $("#copy").html("Pretty flowers for anyone");
+                                }
+                            });
+                        </code>
+                    </pre>
+                    <p>
+                        The left hand side string in the routes attribute is the reference link that was clicked (href="#redRose"). the right hand
+                        side is the function that will be triggered below it.
+                    </p>
+                    <p>
+                        To initiate the router in the driving app, all you need to call is this:
+                    </p>
+                    <pre>
+                        <code>
+                            var flowerRouter = new app.routes.router();
+                        </code>
+                    </pre>
                 </div>
+                
+                <script id="flowerTemplate" type="text/template">
+                    <a href="#<%= link %>">
+                        <img src="<%= img %>" alt="<%= name %>" class="image" />
+                    </a>
+                    <ul>
+                        <li class="flowerInfo"><strong>Name:</strong> <%= name %></li>
+                        <li class="flowerInfo"><strong>Price:</strong> <%= price %></li>
+                        <li class="flowerInfo"><strong>Color:</strong> <%= color %></li>
+                    </ul>
+                </script>
             </div>
         </div>
 
@@ -28,6 +88,19 @@
         <script src="../../scripts/libs/backbone.js"></script>
         <script src="../../scripts/libs/tether.min.js"></script><!-- Tether for Bootstrap -->
         <script src="../../scripts/libs/bootstrap.js"></script> 
-        <script src="../../scripts/flower-site/main.js"></script> <!-- namespace info -->
+        <script src="../../scripts/flower-site/main.js"></script> 
+
+        <!-- models -->
+        <script src="../../scripts/flower-site/models/singleFlowerModel.js"></script>
+        <!-- views -->
+        <script src="../../scripts/flower-site/views/flowerViews/singleFlowerView.js"></script>
+        <script src="../../scripts/flower-site/views/flowerViews/allFlowersView.js"></script>
+        <script src="../../scripts/flower-site/collections/allFlowers.js"></script>
+        <!-- router -->
+        <script src="../../scripts/flower-site/routes/router.js"></script>
+        <!-- test data -->
+        <script src="../../scripts/flower-site/test-data/test-data.js"></script>
+        <!-- app -->
+        <script src="../../scripts/flower-site/apps/flowersApp.js"></script>
     </body>
 </html>

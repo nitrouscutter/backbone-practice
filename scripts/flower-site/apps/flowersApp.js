@@ -11,17 +11,17 @@ var flowerRouter = new app.routes.router();
 Backbone.history.start();
 
 // Test simple model api call
-var greetingModel = new app.models.greetingModel();
-greetingModel.fetch({
-    dataType: 'json',
-    jsonpCallback: 'callback',
-    type: 'GET',
-    success: function (response) {
-        console.log("Found the greeting: " + response.get("content"));
-        let greetingView = new app.views.greetingView({model: greetingModel});
-        $("#greeting").html(greetingView.render().el);
-    }
-});
+// var greetingModel = new app.models.greetingModel();
+// greetingModel.fetch({
+//     dataType: 'json',
+//     jsonpCallback: 'callback',
+//     type: 'GET',
+//     success: function (response) {
+//         console.log("Found the greeting: " + response.get("content"));
+//         let greetingView = new app.views.greetingView({model: greetingModel});
+//         $("#greeting").html(greetingView.render().el);
+//     }
+// });
 
 //---------------
 // Test
