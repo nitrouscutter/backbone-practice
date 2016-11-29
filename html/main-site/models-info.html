@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../styles/main.css">
+        <link rel="stylesheet" type="text/css" href="../../styles/bootstrap.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="container bd-pageheader">
+                <a class="logo" href="../../index.html">
+                    <img src="../../images/backbone.png" width="200"/>
+                </a>
+                <div class="jumbotron">
+                    <h1>Models</h1>      
+                </div>
+            </div>
+            <div class="container">
+                <div class="bd-content">
+                    <p>
+                        A Model manages an internal table of data attributes, and triggers "change" events when any of its data is modified. Models handle syncing data with a persistence layer — usually a REST API with a backing database. Design your models as the atomic reusable objects containing all of the helpful functions for manipulating their particular bit of data. Models should be able to be passed around throughout your app, and used anywhere that bit of data is needed.
+                    </p>
+                    <h3> Example: </h3>
+                    <pre>
+                        <code>
+                            app.models.singleFlowerModel = Backbone.Model.extend({
+                                defaults:{
+                                    color: "Pink",
+                                    img: "../../images/placeholder.jpg",
+                                    link: "default"
+                                },
+                                initialize: function(){
+                                    // When model instance is created, the class's constructor gets called and initialize is invoked 
+                                }
+                            });
+
+                        </code>
+                    </pre>
+                    <p>
+                        Backbone also offers collection models, which are simply an ordered set of models.
+                    </p>
+                    <h3> Example: </h3>
+                    <pre>
+                        <code>
+                            app.collections.flowersCollection = Backbone.Collection.extend({
+                                model: app.models.singleFlowerModel
+                            });
+                        </code>
+                    </pre>
+                    <p>
+                        So now lets put these to use...
+                    </p>
+                    <h3> Example: </h3>
+                    <pre>
+                        <code>
+                            let redRoses = app.singleFlowerModel({
+                                name: "Red Roses",
+                                price: 39.95,
+                                color: "Red",
+                                img:"../../images/redRoses.jpg",
+                                link:"redRose"
+                            });
+                            
+                            // Backbone models have setters and getters to access its attributes
+                            redRoses.set('price', 20);
+                            let redRoseColor = redRoses.get('color');
+
+                            // notice img is missing, it will take the model default
+                            let rainbowRoses = app.singleFlowerModel({
+                                name: "Rainbow Roses",
+                                price: 29.95,
+                                color: "orange",
+                                link:"rainbowRose"
+                            });
+
+                            let heirloomRoses = app.singleFlowerModel({
+                                name: "Heirloom Roses",
+                                price: 19.95,
+                                img:"../../images/heirloomRoses.jpg",
+                                link:"heirloomRose"
+                            });
+
+                            let tantalizingTulips = app.singleFlowerModel({
+                                name: "Tantalizing Tulips",
+                                price: 9.99,
+                                color: "purple",
+                                img:"../../images/tantalizingTulips.jpg",
+                                key:"originCountry",
+                                value:"Holland"
+                            });
+
+                            // you can also insert json that looks the same into the collection and it will auto convert
+                            let fleurDeLis = {
+                                name: "Fleur-de-lis",
+                                price: 69.99,
+                                color:"red",
+                                img:"../../images/fleur-de-lis.jpg",
+                            };
+
+                            let flowersCollection = new app.flowersCollection([redRoses,rainbowRoses, heirloomRoses,tantalizingTulips,fleurDeLis]);
+                        </code>
+                    </pre>
+                    <p>
+                        We will get into rendering the models into the views in the next module : Views
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- main libraries -->
+        <script src="../../scripts/libs/jquery-3.1.1.js"></script>
+        <script src="../../scripts/libs/underscore.js"></script>
+        <script src="../../scripts/libs/backbone.js"></script>
+        <script src="../../scripts/libs/tether.min.js"></script><!-- Tether for Bootstrap -->
+        <script src="../../scripts/libs/bootstrap.js"></script> 
+        <script src="../../scripts/flower-site/main.js"></script> <!-- namespace info -->
+    </body>
+</html>

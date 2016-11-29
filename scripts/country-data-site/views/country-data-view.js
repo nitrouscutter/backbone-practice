@@ -3,13 +3,13 @@ var app = app || {};
 app.views.countryDataView = Backbone.View.extend({
     initialize: function(options){
         let view = this;
-        let countryCode = view.model.get("countryCode");
-        view.regionsCollection = new app.api.getRegionsByCountryCode([], {country:countryCode});
+        view.countryCode = view.model.get("countryCode");
+        view.regionsCollection = new app.api.getRegionsByCountryCode([], {country:view.countryCode});
         view.countriesCollection = new app.api.getAllCountries();
-        view.regionsView = new app.views.regionsView({collection: view.regionsCollection, countryCode:countryCode});
+        view.regionsView = new app.views.regionsView({collection: view.regionsCollection, countryCode:view.countryCode});
         view.countriesView = new app.views.countriesView({collection:[]});
+        // render default USA country code regions
         view.renderRegionsByCountryCode();
-        view.model.on('change', this.render, this);
     },
     tagName: "div",
     className:"row",
@@ -37,8 +37,6 @@ app.views.countryDataView = Backbone.View.extend({
             countryCode: $("#country-code-input").val()
         });
         view.renderRegionsByCountryCode();
-        view.regionsView.collection = view.regionsCollection;
-        view.regionsView.countryCode = view.countryCode;
         $("#country-code-input").select();
     },
     searchAllCountries: function(){
@@ -62,7 +60,7 @@ app.views.countryDataView = Backbone.View.extend({
         view.regionsCollection.country = countryCode;
 		view.regionsCollection.fetch({
 			success: function(response,xhr) {
-                view.regionsView. collection = response;
+                view.regionsCollection = response;
 			    view.regionsView.render();
 			}
 		});

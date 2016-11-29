@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../styles/main.css">
+        <link rel="stylesheet" type="text/css" href="../../styles/bootstrap.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="container bd-pageheader">
+                <a class="logo" href="../../index.html">
+                    <img src="../../images/backbone.png" width="200"/>
+                </a>
+                <div class="jumbotron">
+                    <h1>Views</h1>      
+                </div>
+            </div>
+            <div class="container">
+                <div class="bd-content">
+                    <p>
+A View is an atomic chunk of user interface. It often renders the data from a specific model, or number of models — but views can also be data-less chunks of UI that stand alone. Models should be generally unaware of views. Instead, views listen to the model "change" events, and react or re-render themselves appropriately.
+                    </p>
+                    <h3> Example: </h3>
+                    <pre>
+                        <code>
+                            app.views.singleFlowerView = Backbone.View.extend({
+                                tagName: "div",
+                                className:"flowerListItem col-sm-4",
+                                template: _.template( $("#flowerTemplate").html()),
+                                render: function(){
+                                    let view = this;
+                                    let flowerTemplate = view.template(view.model.toJSON());
+                                    view.$el.html(flowerTemplate);
+                                    return view;
+                                },
+                            });
+                        </code>
+                    </pre>
+                    <p>
+                        Notice the template attribute. This hooks up to a script template you have to provide it.
+                    </p>
+                    <p>
+                        Backbone can also offer views that render collections of single Backbone views
+                    </p>
+                    <h3> Example: </h3>
+                    <pre>
+                        <code>
+                            app.views.allFlowersView = Backbone.View.extend({
+                                tagName: "section",
+                                render:function(){
+                                    let view = this;
+                                    // takes in a collection model
+                                    view.collection.each(view.addFlower, view);
+                                    return view;
+                                },
+                                addFlower: function(flower){
+                                    let view = this;
+                                    let flowerView = new app.views.singleFlowerView({model: flower})
+                                    view.$el.append(flowerView.render().el); // appends to this Backbone vies element
+                                }
+                            });
+                        </code>
+                    </pre>
+                    <p>
+                        So now with the model data provided in the Models tutorial, lets render something.
+                    </p>
+                    <pre>
+                        <code>
+                            let flowerGroupView = new app.views.allFlowersView({collection: flowersCollection});
+                            $("#allFlowers").html(flowerGroupView.render().el); // renders to element on the html page
+                        </code>
+                    </pre>
+                    <div id="allFlowers"></div>
+                    <script id="flowerTemplate" type="text/template">
+                        <a href="#<%= link %>">
+                            <img src="<%= img %>" alt="<%= name %>" class="image" />
+                        </a>
+                        <ul>
+                            <li class="flowerInfo"><strong>Name:</strong> <%= name %></li>
+                            <li class="flowerInfo"><strong>Price:</strong> <%= price %></li>
+                            <li class="flowerInfo"><strong>Color:</strong> <%= color %></li>
+                        </ul>
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <!-- main libraries -->
+        <script src="../../scripts/libs/jquery-3.1.1.js"></script>
+        <script src="../../scripts/libs/underscore.js"></script>
+        <script src="../../scripts/libs/backbone.js"></script>
+        <script src="../../scripts/libs/tether.min.js"></script><!-- Tether for Bootstrap -->
+        <script src="../../scripts/libs/bootstrap.js"></script> 
+        <script src="../../scripts/flower-site/main.js"></script> <!-- namespace info -->
+
+        <!-- models -->
+        <script src="../../scripts/flower-site/models/singleFlowerModel.js"></script>
+        <script src="../../scripts/flower-site/models/greetingModel.js"></script>
+        <!-- views -->
+        <script src="../../scripts/flower-site/views/flowerViews/singleFlowerView.js"></script>
+        <script src="../../scripts/flower-site/views/flowerViews/allFlowersView.js"></script>
+        <script src="../../scripts/flower-site/collections/allFlowers.js"></script>
+        <!-- router -->
+        <script src="../../scripts/flower-site/routes/router.js"></script>
+        <!-- test data -->
+        <script src="../../scripts/flower-site/test-data/test-data.js"></script>
+        <!-- app -->
+        <script src="../../scripts/flower-site/apps/flowersApp.1.2.js"></script>
+    </body>
+</html>
