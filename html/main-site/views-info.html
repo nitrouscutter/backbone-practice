@@ -68,6 +68,10 @@ A View is an atomic chunk of user interface. It often renders the data from a sp
                             $("#allFlowers").html(flowerGroupView.render().el); // renders to element on the html page
                         </code>
                     </pre>
+                    <p>
+                        Ignore the events that trigger in the views rendered below for now, we will
+                        get into that in another section.
+                    </p>
                     <div id="allFlowers"></div>
                     <script id="flowerTemplate" type="text/template">
                         <a href="#<%= link %>">
