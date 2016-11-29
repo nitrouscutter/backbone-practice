@@ -12,7 +12,7 @@ app.views.countryDataView = Backbone.View.extend({
         view.renderRegionsByCountryCode();
     },
     tagName: "div",
-    className:"row",
+    className:"row container",
     template: _.template( $("#country-data-template").html()),
     render:function(){
         let view = this;

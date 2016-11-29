@@ -2,7 +2,7 @@ var app= app || {}
 
 app.views.regionView = Backbone.View.extend({
     tagName: "div",
-    className:"row regionRow",
+    className:"row light-grey-rounded",
     template: _.template( $("#regionTemplate").html()),
     render: function(){
         let view = this;

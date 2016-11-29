@@ -5,12 +5,21 @@
     height: 250px;
 }
 
-.flowerListItem{
+.light-grey-rounded{
+    border-radius: 15px;
     border:solid;
+    border-width: 1px;
     border-color: lightgrey;
+    background-color: white;
 }
 .bgColorImage{
-    background-color: grey;
+    background-color: #ffffff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#999999));
+    background-image: -webkit-linear-gradient(top, #ffffff, #999999);
+    background-image:    -moz-linear-gradient(top, #ffffff, #999999);
+    background-image:      -o-linear-gradient(top, #ffffff, #999999);
+    background-image:         linear-gradient(to bottom, #ffffff, #999999);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .dot{
   width:50px;
@@ -63,4 +72,10 @@
 
 .list-group.list-group-root > .list-group > .list-group > .list-group-item {
   padding-left: 45px;
+}
+.container{
+    padding-bottom: 25px;
+}
+.main{
+    padding-bottom: 300px;
 }

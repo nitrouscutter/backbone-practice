@@ -65,8 +65,16 @@
                     <pre>
                         <code>
                             var flowerRouter = new app.routes.router();
+                            Backbone.history.start();
                         </code>
                     </pre>
+                    <h3>
+                        Backbone.history.start(options)
+                    </h3>
+                    <p>
+                        Keeps track of the history, matches the appropriate route, fires callbacks to handle events and enables the routing 
+                        in the application.options: The options include the parameters such as pushState and hashChange used with history.
+                    </p>
                 </div>
                 
                 <script id="flowerTemplate" type="text/template">
