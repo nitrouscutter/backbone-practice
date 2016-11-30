@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../styles/main.css">
+        <link rel="stylesheet" type="text/css" href="../../styles/bootstrap.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="container bd-pageheader">
+                <a class="logo" href="../../index.html">
+                    <img src="../../images/backbone.png" width="200"/>
+                </a>
+                <div class="jumbotron">
+                    <h1>Implementing graphics with Backbone</h1>      
+                </div>
+            </div>
+            <div class="container">
+
+                <canvas id="canvas" width="800" height="800"></canvas>
+                <canvas id="star-canvas" width=800 height=800></canvas>
+            </div>
+        </div>
+        <!-- main libraries -->
+        <script src="../../scripts/libs/jquery-3.1.1.js"></script>
+        <script src="../../scripts/libs/underscore.js"></script>
+        <script src="../../scripts/libs/backbone.js"></script>
+        <script src="../../scripts/libs/tether.min.js"></script><!-- Tether for Bootstrap -->
+        <script src="../../scripts/libs/bootstrap.js"></script> 
+        <script src="../../scripts/flower-site/main.js"></script> 
+        <!-- models -->
+        <script src="../../scripts/graphics-site/models/parallelogram.js"></script>
+        <script src="../../scripts/graphics-site/models/collections/parallelogram-collection.js"></script>
+        <script src="../../scripts/graphics-site/models/star.js"></script>
+        <script src="../../scripts/graphics-site/models/collections/star-collection.js"></script>
+        <!-- views -->
+        <script src="../../scripts/graphics-site/views/parallelogram-view.js"></script>
+        <script src="../../scripts/graphics-site/views/parallelograms-view.js"></script>
+        <script src="../../scripts/graphics-site/views/star-view.js"></script>
+        <script src="../../scripts/graphics-site/views/stars-view.js"></script>
+        <!-- app -->
+        <script src="../../scripts/graphics-site/apps/graphics-site-app.js"></script>
+    </body>
+</html>
