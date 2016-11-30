@@ -18,8 +18,6 @@ app.views.starView = Backbone.View.extend({
         let x = cx;
         let y = cy;
         let step = Math.PI / spikes;
-
-        ctx.strokeSyle = "#000";
         ctx.beginPath();
         ctx.moveTo(cx, cy - outerRadius)
         for (i = 0; i < spikes; i++) {
