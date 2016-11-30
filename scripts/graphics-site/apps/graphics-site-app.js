@@ -20,14 +20,17 @@ parallelogramsView.render();
 //---------------------
 // render star collection
 //---------------------
-var starCollection = new app.models.starCollection();
-starCollection.add({lineLength:20, x:50, y:50});
+ var starCollection = new app.models.starCollection();
+ starCollection.add({lineLength:5, x:50, y:50});
+ starCollection.add({lineLength:5, x:160, y:160});
+ starCollection.add({lineLength:5, x:160, y:50});
+ starCollection.add({lineLength:5, x:50, y:160});
 
-var starsView =new app.views.starsView({
-    el:canvas,
-    collection : starCollection
-});
-starsView.render();
+ var starsView =new app.views.starsView({
+     el:canvas,
+     collection : starCollection
+ });
+ starsView.render();
 
 //---------------------
 // render single star view 

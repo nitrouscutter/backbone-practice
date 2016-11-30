@@ -6,34 +6,40 @@ app.views.starView = Backbone.View.extend({
       this.options = options;  
     },
     render : function() {
-        var model=this.model, ctx=this.options.ctx;
+        let model=this.model; 
+        let ctx=this.options.ctx;
+        let spikes = model.get("spikes");
+        let cx = model.get("x");
+        let cy = model.get("y");
+        let outerRadius = model.get("outerRadius");
+        let innerRadius = model.get("innerRadius");
+
+        let rot = Math.PI / 2 * 3;
+        let x = cx;
+        let y = cy;
+        let step = Math.PI / spikes;
+
+        ctx.strokeSyle = "#000";
         ctx.beginPath();
+        ctx.moveTo(cx, cy - outerRadius)
+        for (i = 0; i < spikes; i++) {
+            x = cx + Math.cos(rot) * outerRadius;
+            y = cy + Math.sin(rot) * outerRadius;
+            ctx.lineTo(x, y)
+            rot += step
 
-        // move into the middle of the canvas, just to make room
-        ctx.translate(model.get("x"), model.get("y"));
-        ctx.fillStyle = model.get("fillColor");
-
-        // initial offset rotation so our star is straight
-        //ctx.rotate((Math.PI * 1 / 10));
-
-        // make a point, 5 times
-        for (var i = 5; i--;) {
-            // draw line up
-            ctx.lineTo(0, model.get("lineLength"));
-            // move origin to current same location as pen
-            ctx.translate(0, model.get("lineLength"));
-            // rotate the drawing board
-            ctx.rotate((Math.PI * 2 / 10));
-            // draw line down
-            ctx.lineTo(0, -model.get("lineLength"));
-            // again, move origin to pen...
-            ctx.translate(0, - model.get("lineLength"));
-            // ...and rotate, ready for next arm
-            ctx.rotate(-(Math.PI * 6 / 10));
+            x = cx + Math.cos(rot) * innerRadius;
+            y = cy + Math.sin(rot) * innerRadius;
+            ctx.lineTo(x, y)
+            rot += step
         }
-        // last line to connect things up
-        ctx.lineTo(0, model.get("lineLength"));
-        ctx.fill();
+        ctx.lineTo(cx, cy - outerRadius);
         ctx.closePath();
+        ctx.lineWidth=5;
+        ctx.strokeStyle= model.get("strokeColor");
+        ctx.stroke();
+        ctx.fillStyle= model.get("fillColor");
+        ctx.fill();
+        
     }
 });
